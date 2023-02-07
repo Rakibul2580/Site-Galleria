@@ -1,34 +1,14 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
 import Nev from "@/Components/Nev";
 import Content from "@/Components/Content";
 import Footer from "@/Components/Footer";
 import Sidebar from "@/Components/Sidebar";
-import { useEffect, useState } from "react";
-import { toast, Toaster } from "react-hot-toast";
-import { Radio } from "@material-tailwind/react";
-
-const inter = Inter({ subsets: ["latin"] });
+import { useState } from "react";
+import { Toaster } from "react-hot-toast";
 
 export default function Home() {
   const [color, setColor] = useState(false);
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    fetch("https://openapi.programming-hero.com/api/quiz/5")
-      .then((res) => res.json())
-      .then((data) => setData(data.data.questions))
-      .catch((err) => console.log(err));
-  }, []);
-  const notify = (ans) => toast(ans);
-  const handleAns = (correctAnswer, option) => {
-    if (correctAnswer == option) {
-      toast.success("Congratulation");
-    } else {
-      toast.error("Oh");
-    }
-  };
+
   return (
     <>
       <Head>
@@ -47,42 +27,8 @@ export default function Home() {
           <div className="fixed bottom-0 left-0 right-0 w-10/12 bg-slate-50">
             <Footer setValue={setColor} color={color}></Footer>
           </div>
-          <div className="pb-5">
-            {data.map((item, index) => (
-              <div key={index}>
-                <div className="p-5 m-5 mt-2 bg-white border-4 rounded-md shadow-2xl border-sky-300 md:m-10">
-                  <div className="blog md:flex md:justify-between">
-                    <h1 className="text-2xl font-semibold text-black">
-                      Quiz :{" "}
-                      {item.question.replace("<p>", " ").replace("</p>", " ")}
-                    </h1>
-                  </div>
-                  <form className="grid grid-cols-1 gap-4 mt-3 md:grid-cols-2">
-                    {item.options.map((option, id) => (
-                      <label
-                        key={id}
-                        className="flex items-center p-3 mt-3 font-medium text-black rounded-md shadow-xl bg-sky-200"
-                      >
-                        {/* <input
-                          onClick={() => handleAns(item.correctAnswer, option)}
-                          type="radio"
-                          name="radio-6"
-                          className="radio radio-accent"
-                        /> */}
-                        <Radio
-                          onClick={() => handleAns(item.correctAnswer, option)}
-                          id="ripple-on"
-                          name="type"
-                          className="border-2 border-primary-blue"
-                          ripple={false}
-                        />{" "}
-                        <p className="ml-2">{option}</p>
-                      </label>
-                    ))}
-                  </form>
-                </div>
-              </div>
-            ))}
+          <div>
+            <Content />
           </div>
         </div>
         <div className="fixed top-0 right-0 w-2/12 bg-white">
