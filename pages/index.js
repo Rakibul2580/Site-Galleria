@@ -47,7 +47,7 @@ export default function Home() {
           <div className="fixed bottom-0 left-0 right-0 w-10/12 bg-slate-50">
             <Footer setValue={setColor} color={color}></Footer>
           </div>
-          <div className="pb-8 ">
+          <div className="pb-5">
             {data.map((item, index) => (
               <div key={index}>
                 <div className="p-5 m-5 mt-2 bg-white border-4 rounded-md shadow-2xl border-sky-300 md:m-10">

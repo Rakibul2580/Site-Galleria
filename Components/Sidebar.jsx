@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Sidebar = ({ value }) => {
   return (
-    <div className="sticky top-0 left-0 mx-3 mb-2 text-black">
+    <div className="mx-3 mb-2 text-black">
       <div className="flex items-center w-full space-x-5 bg-blue-200 border border-gray-500 rounded-md">
         <img
           src="https://i.ibb.co/2g8F04D/Whats-App-Image-2022-04-11-at-2-45-24-AM.jpg"
