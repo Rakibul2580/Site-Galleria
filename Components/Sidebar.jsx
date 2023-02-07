@@ -14,7 +14,7 @@ const Sidebar = ({ value }) => {
           <p>Rakibul Hasan</p>
         </div>
       </div>
-      <div className="my-2 bg-blue-200 border border-gray-500 rounded-md h-[280px]">
+      <div className="my-2 bg-blue-200 border border-gray-500 rounded-md h-[300px]">
         <p className="py-1 pl-2 text-lg text-white bg-blue-400 rounded-t-md">
           Question Pallete
         </p>

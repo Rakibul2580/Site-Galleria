@@ -21,7 +21,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex justify-between">
+      <main className="flex justify-between bg-white">
         <div className="w-10/12 text-black bg-white">
           <div className="fixed top-0 left-0 right-0 w-10/12 bg-slate-50">
             <Nev />
