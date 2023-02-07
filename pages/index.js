@@ -6,13 +6,29 @@ import Nev from "@/Components/Nev";
 import Content from "@/Components/Content";
 import Footer from "@/Components/Footer";
 import Sidebar from "@/Components/Sidebar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
+import { Radio } from "@material-tailwind/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [color, setColor] = useState(false);
-
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch("https://openapi.programming-hero.com/api/quiz/5")
+      .then((res) => res.json())
+      .then((data) => setData(data.data.questions))
+      .catch((err) => console.log(err));
+  }, []);
+  const notify = (ans) => toast(ans);
+  const handleAns = (correctAnswer, option) => {
+    if (correctAnswer == option) {
+      toast.success("Congratulation");
+    } else {
+      toast.error("Oh");
+    }
+  };
   return (
     <>
       <Head>
@@ -22,152 +38,52 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex justify-between bg-white">
+        <Toaster />
         <div className="w-10/12 text-black bg-white">
           <div className="fixed top-0 left-0 right-0 w-10/12 bg-slate-50">
             <Nev />
           </div>
-          <div className="mt-16">
-            <Content />
-          </div>
+          <div className="mt-16">{/* <Content /> */}</div>
           <div className="fixed bottom-0 left-0 right-0 w-10/12 bg-slate-50">
             <Footer setValue={setColor} color={color}></Footer>
           </div>
-          <p className="text-black">
-            same image you have to design and host online on vercel.app and
-            share the url. When we click on next button then right side button
-            became green, when click on review then became yellow, when clck on
-            dump then it became whitesame image you have to design and host
-            online on vercel.app and share the url. When we click on next button
-            then right side button became green, when click on review then
-            became yellow, when clck on dump then it became whitesame image you
-            have to design and host online on vercel.app and share the url. When
-            we click on next button then right side button became green, when
-            click on review then became yellow, when clck on dump then it became
-            whitesame image you have to design and host online on vercel.app and
-            share the url. When we click on next button then right side button
-            became green, when click on review then became yellow, when clck on
-            dump then it became whitesame image you have to design and host
-            online on vercel.app and share the url. When we click on next button
-            then right side button became green, when click on review then
-            became yellow, when clck on dump then it became whitesame image you
-            have to design and host online on vercel.app and share the url. When
-            we click on next button then right side button became green, when
-            click on review then became yellow, when clck on dump then it became
-            whitesame image you have to design and host online on vercel.app and
-            share the url. When we click on next button then right side button
-            became green, when click on review then became yellow, when clck on
-            dump then it became whitesame image you have to design and host
-            online on vercel.app and share the url. When we click on next button
-            then right side button became green, when click on review then
-            became yellow, when clck on dump then it became whitesame image you
-            have to design and host online on vercel.app and share the url. When
-            we click on next button then right side button became green, when
-            click on review then became yellow, when clck on dump then it became
-            whitesame image you have to design and host online on vercel.app and
-            share the url. When we click on next button then right side button
-            became green, when click on review then became yellow, when clck on
-            dump then it became whitesame image you have to design and host
-            online on vercel.app and share the url. When we click on next button
-            then right side button became green, when click on review then
-            became yellow, when clck on dump then it became whitesame image you
-            have to design and host online on vercel.app and share the url. When
-            we click on next button then right side button became green, when
-            click on review then became yellow, when clck on dump then it became
-            whitesame image you have to design and host online on vercel.app and
-            share the url. When we click on next button then right side button
-            became green, when click on review then became yellow, when clck on
-            dump then it became whitesame image you have to design and host
-            online on vercel.app and share the url. When we click on next button
-            then right side button became green, when click on review then
-            became yellow, when clck on dump then it became whitesame image you
-            have to design and host online on vercel.app and share the url. When
-            we click on next button then right side button became green, when
-            click on review then became yellow, when clck on dump then it became
-            whitesame image you have to design and host online on vercel.app and
-            share the url. When we click on next button then right side button
-            became green, when click on review then became yellow, when clck on
-            dump then it became whitesame image you have to design and host
-            online on vercel.app and share the url. When we click on next button
-            then right side button became green, when click on review then
-            became yellow, when clck on dump then it became whitesame image you
-            have to design and host online on vercel.app and share the url. When
-            we click on next button then right side button became green, when
-            click on review then became yellow, when clck on dump then it became
-            whitesame image you have to design and host online on vercel.app and
-            share the url. When we click on next button then right side button
-            became green, when click on review then became yellow, when clck on
-            dump then it became whitesame image you have to design and host
-            online on vercel.app and share the url. When we click on next button
-            then right side button became green, when click on review then
-            became yellow, when clck on dump then it became whitesame image you
-            have to design and host online on vercel.app and share the url. When
-            we click on next button then right side button became green, when
-            click on review then became yellow, when clck on dump then it became
-            whitesame image you have to design and host online on vercel.app and
-            share the url. When we click on next button then right side button
-            became green, when click on review then became yellow, when clck on
-            dump then it became whitesame image you have to design and host
-            online on vercel.app and share the url. When we click on next button
-            then right side button became green, when click on review then
-            became yellow, when clck on dump then it became white same image you
-            have to design and host online on vercel.app and share the url. When
-            we click on next button then right side button became green, when
-            click on review then became yellow, when clck on dump then it became
-            whitesame image you have to design and host online on vercel.app and
-            share the url. When we click on next button then right side button
-            became green, when click on review then became yellow, when clck on
-            dump then it became whitesame image you have to design and host
-            online on vercel.app and share the url. When we click on next button
-            then right side button became green, when click on review then
-            became yellow, when clck on dump then it became whitesame image you
-            have to design and host online on vercel.app and share the url. When
-            we click on next button then right side button became green, when
-            click on review then became yellow, when clck on dump then it became
-            whitesame image you have to design and host online on vercel.app and
-            share the url. When we click on next button then right side button
-            became green, when click on review then became yellow, when clck on
-            dump then it became whitevsame image you have to design and host
-            online on vercel.app and share the url. When we click on next button
-            then right side button became green, when click on review then
-            became yellow, when clck on dump then it became whitesame image you
-            have to design and host online on vercel.app and share the url. When
-            we click on next button then right side button became green, when
-            click on review then became yellow, when clck on dump then it became
-            whitesame image you have to design and host online on vercel.app and
-            share the url. When we click on next button then right side button
-            became green, when click on review then became yellow, when clck on
-            dump then it became whitesame image you have to design and host
-            online on vercel.app and share the url. When we click on next button
-            then right side button became green, when click on review then
-            became yellow, when clck on dump then it became whitesame image you
-            have to design and host online on vercel.app and share the url. When
-            we click on next button then right side button became green, when
-            click on review then became yellow, when clck on dump then it became
-            whitesame image you have to design and host online on vercel.app and
-            share the url. When we click on next button then right side button
-            became green, when click on review then became yellow, when clck on
-            dump then it became whitesame image you have to design and host
-            online on vercel.app and share the url. When we click on next button
-            then right side button became green, when click on review then
-            became yellow, when clck on dump then it became whitesame image you
-            have to design and host online on vercel.app and share the url. When
-            we click on next button then right side button became green, when
-            click on review then became yellow, when clck on dump then it became
-            whitesame image you have to design and host online on vercel.app and
-            share the url. When we click on next button then right side button
-            became green, when click on review then became yellow, when clck on
-            dump then it became whitesame image you have to design and host
-            online on vercel.app and share the url. When we click on next button
-            then right side button became green, when click on review then
-            became yellow, when clck on dump then it became whitesame image you
-            have to design and host online on vercel.app and share the url. When
-            we click on next button then right side button became green, when
-            click on review then became yellow, when clck on dump then it became
-            whitesame image you have to design and host online on vercel.app and
-            share the url. When we click on next button then right side button
-            became green, when click on review then became yellow, when clck on
-            dump then it became white
-          </p>
+          <div className="pb-8 ">
+            {data.map((item, index) => (
+              <div key={index}>
+                <div className="p-5 m-5 mt-2 bg-white border-4 rounded-md shadow-2xl border-sky-300 md:m-10">
+                  <div className="blog md:flex md:justify-between">
+                    <h1 className="text-2xl font-semibold text-black">
+                      Quiz :{" "}
+                      {item.question.replace("<p>", " ").replace("</p>", " ")}
+                    </h1>
+                  </div>
+                  <form className="grid grid-cols-1 gap-4 mt-3 md:grid-cols-2">
+                    {item.options.map((option, id) => (
+                      <label
+                        key={id}
+                        className="flex items-center p-3 mt-3 font-medium text-black rounded-md shadow-xl bg-sky-200"
+                      >
+                        {/* <input
+                          onClick={() => handleAns(item.correctAnswer, option)}
+                          type="radio"
+                          name="radio-6"
+                          className="radio radio-accent"
+                        /> */}
+                        <Radio
+                          onClick={() => handleAns(item.correctAnswer, option)}
+                          id="ripple-on"
+                          name="type"
+                          className="border-2 border-primary-blue"
+                          ripple={false}
+                        />{" "}
+                        <p className="ml-2">{option}</p>
+                      </label>
+                    ))}
+                  </form>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
         <div className="fixed top-0 right-0 w-2/12 bg-white">
           <div>
