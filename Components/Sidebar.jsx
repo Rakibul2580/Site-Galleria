@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 const Sidebar = ({ value }) => {
-  console.log(value);
   return (
     <div className="sticky top-0 left-0 mx-3 mb-2 text-black">
       <div className="flex items-center w-full space-x-5 bg-blue-200 border border-gray-500 rounded-md">

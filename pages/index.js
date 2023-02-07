@@ -12,7 +12,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [value, setValue] = useState(false);
-  console.log(value);
 
   return (
     <>
