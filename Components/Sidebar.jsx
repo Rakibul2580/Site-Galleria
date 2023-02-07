@@ -75,7 +75,7 @@ const Sidebar = ({ value }) => {
             Questions
           </button>
           <button
-            className={`py-1 ${value ? value : "bg-blue-500"} rounded-md`}
+            className={`py-1 ${value ? value : "bg-blue-500"}  rounded-md`}
           >
             Submit
           </button>

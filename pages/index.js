@@ -11,7 +11,7 @@ import { useState } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [value, setValue] = useState(false);
+  const [color, setColor] = useState(false);
 
   return (
     <>
@@ -30,7 +30,7 @@ export default function Home() {
             <Content />
           </div>
           <div className="fixed bottom-0 left-0 right-0 w-10/12 bg-slate-50">
-            <Footer setValue={setValue}></Footer>
+            <Footer setValue={setColor} color={color}></Footer>
           </div>
           <p className="text-black">
             same image you have to design and host online on vercel.app and
@@ -169,9 +169,9 @@ export default function Home() {
             dump then it became white
           </p>
         </div>
-        <div className="fixed top-0 right-0 w-2/12 h-screen bg-white">
+        <div className="fixed top-0 right-0 w-2/12 bg-white">
           <div>
-            <Sidebar value={value}></Sidebar>
+            <Sidebar value={color}></Sidebar>
           </div>
         </div>
       </main>
